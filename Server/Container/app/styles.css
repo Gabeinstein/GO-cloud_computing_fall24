@@ -1,0 +1,38 @@
+header {
+    background-color: #4d63c4;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    position: relative;
+}
+
+.class-content{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    
+}
+.class-name{
+    margin-left: 15px;
+}
+.color_service{
+    color: rgb(83, 191, 253);
+}
+
+.main-content{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+.main-name{
+    margin-left: 15px;
+}
+p {
+    line-height: 0.1;
+}
+h3 {
+    line-height: 0.1;
+}
+main {
+    padding: 20px;
+}

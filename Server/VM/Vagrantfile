@@ -1,0 +1,32 @@
+
+Vagrant.configure("2") do |config|  
+  config.vm.disk :disk, size: "5GB", primary: true
+  config.vm.box = "hashicorp/bionic64"
+  config.vm.hostname = "server-user"
+  config.vm.network "public_network"
+  config.vm.network "forwarded_port", guest:80, host:8082
+  
+  config.vm.provision "file", source:"app", destination: "/tmp"
+
+  config.vm.provision "shell", inline: <<-SHELL
+    echo "----------------INSTALLING NGINX----------------"
+    apt-get update
+    apt-get install -y nginx htop
+    export SERVICE_NAME="Vagrant"
+    echo "Done!"
+    echo "------------------MOVING FILES------------------"
+    mv /tmp/index.html /var/www/html/index.html.template
+    mv /tmp/styles.css /var/www/html/styles.css
+    echo "Done!"
+    echo "-------------------UPDATE HTML------------------"
+    envsubst < /var/www/html/index.html.template > /var/www/html/index.html
+    echo "Done!"
+    echo "----------------RESTARTING NGINX----------------"
+    systemctl restart nginx
+    echo "Done!"
+    echo "-------------------IP ADDRESS-------------------"
+    ip a | grep "inet"
+    echo "------------------------------------------------"
+    
+    SHELL
+end
