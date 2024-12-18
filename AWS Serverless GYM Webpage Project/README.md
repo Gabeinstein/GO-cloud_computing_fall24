@@ -8,6 +8,10 @@ El despliegue se automatiza mediante un script `setup.sh`, que utiliza AWS CLI y
 
 El proyecto contiene un directorio `/resources/setup.sh`, que incluye todos los comandos necesarios para la generación y habilitación de los diferentes servicios utilizados en nuestro proyecto.
 
+`chmod +x ./gym-webpage/resources/setup.sh`
+
+`./gym-webpage/resources/setup.sh`
+
 ## Configuraciones Manuales
 
 Las únicas configuraciones realizadas manualmente fueron:
@@ -15,4 +19,4 @@ Las únicas configuraciones realizadas manualmente fueron:
 
 ---
 
-Este enfoque asegura una implementación ágil y adaptable para la gestión de membresías en gimnasios modernos.
+Las imágnes de las membresias se las realizó utilizando DALL-E.
